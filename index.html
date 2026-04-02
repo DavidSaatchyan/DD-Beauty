@@ -1,0 +1,678 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>DD Beauty & Relaxation | Ubud — Bali Beauty Sanctuary</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #FEFAF5;
+            color: #2C2418;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .logo, .nav-links a {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            backdrop-filter: blur(12px);
+            background: rgba(254, 250, 245, 0.95);
+            z-index: 1000;
+            padding: 1.2rem 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(197, 162, 103, 0.25);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #8B5A2B;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2C2418;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { color: #C5A267; }
+
+        .book-btn {
+            background: #2C2418;
+            color: #FEFAF5;
+            border: none;
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .book-btn:hover {
+            background: #C5A267;
+            transform: scale(1.02);
+        }
+
+        /* Hero */
+        .hero {
+            height: 90vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            margin-top: 70px;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            filter: brightness(0.65);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            color: white;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4.8rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        /* Section */
+        .section {
+            padding: 5rem 8%;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: #2C2418;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 2px;
+            background: #C5A267;
+            margin: 0.8rem auto 0;
+        }
+
+        /* Category Block - compact & elegant */
+        .category-block {
+            margin-bottom: 4rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.8rem;
+            border-bottom: 1px solid #E8DDD0;
+            padding-bottom: 0.8rem;
+        }
+
+        .category-icon {
+            width: 48px;
+            height: 48px;
+            background: #F5EDE2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #C5A267;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: #8B5A2B;
+            letter-spacing: -0.3px;
+        }
+
+        .treatments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.2rem;
+        }
+
+        /* Elegant Treatment Cards */
+        .treatment-card {
+            background: white;
+            border-radius: 18px;
+            padding: 1.2rem 1.2rem 1rem 1.2rem;
+            transition: all 0.35s ease;
+            border: 1px solid #F0E5D8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .treatment-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+            border-color: #C5A267;
+            background: #FFFDF9;
+        }
+
+        .treatment-info-compact {
+            flex: 1;
+        }
+
+        .treatment-name {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            color: #2C2418;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: -0.2px;
+        }
+
+        .treatment-desc {
+            font-size: 0.75rem;
+            color: #8F7E68;
+            margin-bottom: 0.3rem;
+            line-height: 1.3;
+        }
+
+        .treatment-price {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: #C5A267;
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+        }
+
+        .treatment-arrow {
+            color: #C5A267;
+            font-size: 1rem;
+            opacity: 0.6;
+            transition: 0.2s;
+        }
+
+        .treatment-card:hover .treatment-arrow {
+            opacity: 1;
+            transform: translateX(3px);
+        }
+
+        /* Category with image background */
+        .category-visual {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(95deg, #FEF9F0 0%, #FFFCF8 100%);
+            border-radius: 28px;
+            padding: 1.2rem 1.8rem;
+        }
+
+        .category-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        .category-desc {
+            flex: 1;
+            font-size: 0.9rem;
+            color: #5E4E38;
+            font-style: italic;
+        }
+
+        /* Wellness Block */
+        .wellness-block {
+            background: linear-gradient(135deg, #FEF5E8 0%, #FFF9F0 100%);
+            padding: 4rem 8%;
+            margin: 1rem 0;
+        }
+
+        .wellness-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .wellness-visual {
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.08);
+        }
+
+        .wellness-visual img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+        }
+
+        .wellness-tip {
+            background: rgba(255,255,255,0.8);
+            padding: 1rem 1.2rem;
+            border-radius: 18px;
+            margin-bottom: 1rem;
+            border-left: 3px solid #C5A267;
+        }
+
+        .wellness-tip h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+            color: #8B5A2B;
+        }
+
+        .wellness-tip p {
+            font-size: 0.85rem;
+            color: #4A3E2E;
+        }
+
+        .wellness-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            line-height: 1.3;
+            color: #8B5A2B;
+            margin-top: 1.2rem;
+            font-style: italic;
+        }
+
+        /* Reviews Carousel - elegant & smooth */
+        .reviews-section {
+            background: #FEFAF5;
+            padding: 4rem 8%;
+        }
+
+        .review-swiper {
+            padding: 1rem 0.5rem 3rem;
+        }
+
+        .review-card {
+            background: white;
+            border-radius: 28px;
+            padding: 2rem 1.8rem;
+            text-align: center;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.03);
+            border: 1px solid #F0E5D8;
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            cursor: pointer;
+        }
+
+        .review-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 40px rgba(0,0,0,0.08);
+            border-color: #C5A267;
+        }
+
+        .review-text {
+            font-size: 1rem;
+            line-height: 1.55;
+            font-style: italic;
+            margin-bottom: 1.2rem;
+            color: #3A2E20;
+            font-weight: 400;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: #8B5A2B;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            letter-spacing: 0.3px;
+        }
+
+        .review-stars {
+            color: #C5A267;
+            font-size: 0.8rem;
+            margin-bottom: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        /* Booking Section */
+        .booking-section {
+            background: linear-gradient(135deg, #FFF9F0 0%, #FEF5E8 100%);
+        }
+
+        .booking-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 3rem;
+            background: white;
+            border-radius: 32px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .booking-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #8B5A2B;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 16px;
+            border: 1px solid #E2D5C2;
+            background: #FFFFFF;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #C5A267;
+            box-shadow: 0 0 0 3px rgba(197,162,103,0.1);
+        }
+
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C5A267' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1.2rem;
+        }
+
+        .btn-submit {
+            background: #2C2418;
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 40px;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #C5A267;
+        }
+
+        .map-container {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            margin: 1rem 0;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 260px;
+            border: 0;
+        }
+
+        .footer {
+            background: #2C2418;
+            color: #FEFAF5;
+            padding: 3rem 8% 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #C5A267;
+        }
+
+        .social-links a {
+            color: #FEFAF5;
+            margin-right: 1rem;
+            font-size: 1.4rem;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover { color: #C5A267; }
+
+        @media (max-width: 900px) {
+            .wellness-container, .booking-wrapper { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            .section { padding: 3rem 5%; }
+            .category-visual { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">DD Beauty & Relaxation</div>
+    <ul class="nav-links">
+        <li><a href="#treatments">Treatments</a></li>
+        <li><a href="#wellness">Wellness</a></li>
+        <li><a href="#reviews">Whispers</a></li>
+        <li><a href="#booking">Reserve</a></li>
+    </ul>
+    <button class="book-btn" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book Now</button>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=1600">
+        <source src="https://cdn.coverr.co/videos/coverr-spa-treatment-1578922416487/1080p.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Where Bali Meets Beauty</h1>
+        <p>Massage • Nails • Lash Lift • Manicure • Pedicure</p>
+        <button class="book-btn" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})" style="background: #C5A267; color:#2C2418;">Begin Your Ritual →</button>
+    </div>
+</section>
+
+<!-- TREATMENTS SECTION - compact & elegant with category images -->
+<section id="treatments" class="section">
+    <h2 class="section-title">Treatments & Rituals</h2>
+    
+    <!-- Category 1: Body Treatments -->
+    <div class="category-block">
+        <div class="category-visual">
+            <img class="category-img" src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=150&h=150&fit=crop" alt="Massage">
+            <div class="category-desc">Ancient Balinese techniques meet modern healing — each stroke designed to release tension and restore energy flow.</div>
+        </div>
+        <div class="treatments-grid">
+            <div class="treatment-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="treatment-info-compact"><div class="treatment-name">Traditional Balinese Massage</div><div class="treatment-desc">Acupressure & muscle techniques</div><div class="treatment-price">180K / 270K</div></div><div class="treatment-arrow">→</div></div>
+            <div class="treatment-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="treatment-info-compact"><div class="treatment-name">Warm Oil Massage</div><div class="treatment-desc">Pandan leaf oil + Balinese massage</div><div class="treatment-price">200K / 300K</div></div><div class="treatment-arrow">→</div></div>
+            <div class="treatment-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="treatment-info-compact"><div class="treatment-name">Aromatherapy Massage</div><div class="treatment-desc">Herbal oils to calm the spirit</div><div class="treatment-price">190K / 285K</div></div><div class="treatment-arrow">→</div></div>
+            <div class="treatment-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="treatment-info-compact"><div class="treatment-name">Warm Stone Massage</div><div class="treatment-desc">Heated stones for deep relaxation</div><div class="treatment-price">300K (90min)</div></div><div class="treatment-arrow">→</div></div>
+            <div class="treatment-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="treatment-info-compact"><div class="treatment-name">Deep Tissue Massage</div><div class="treatment-desc">Focused meridian & nerve pressure</div><div class="treatment-price">200K / 300K</div></div><div class="treatment-arrow">→</div></div>
+            <div class="treatment-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="treatment-info-compact"><div class="treatment-name">Back, Shoulder & Foot</div><div class="treatment-desc">Neck, shoulders, back & feet</div><div class="treatment-price">200K / 300K</div></div><div class="treatment-arrow">→</div></div>
+        </div>
+    </div>
+
+    <!-- Category 2: Specialty Rituals -->
+    <div class="category-block">
+        <div class="category-visual">
+            <img class="category-img" src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=150&h=150&fit=crop" alt="Specialty">
+            <div class="category-desc">Signature rituals that blend traditional wisdom with indulgent care — from head to toe.</div>
+        </div>
+        <div class="treatments-grid">
+            <div class="treatment-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="treatment-info-compact"><div class="treatment-name">Head Massage</div><div class="treatment-desc">Scalp massage + hair mask + wash</div><div class="treatment-price">200K (60min)</div></div><div class="treatment-arrow">→</div></div>
+            <div class="treatment-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="treatment-info-compact"><div class="treatment-name">Balinese Borch</div><div class="treatment-desc">Natural ingredient body treatment</div><div class="treatment-price">300K (90min)</div></div><div class="treatment-arrow">→</div></div>
+            <div class="treatment-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="treatment-info-compact"><div class="treatment-name">Foot Massage</div><div class="treatment-desc">Refresh tired feet & legs</div><div class="treatment-price">100K / 150K</div></div><div class="treatment-arrow">→</div></div>
+            <div class="treatment-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="treatment-info-compact"><div class="treatment-name">Body Scrub & Mask</div><div class="treatment-desc">Scrub + mask + Balinese massage</div><div class="treatment-price">350K (90min)</div></div><div class="treatment-arrow">→</div></div>
+            <div class="treatment-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="treatment-info-compact"><div class="treatment-name">Special Facial & Mask</div><div class="treatment-desc">Cleanse, peel, massage + cucumber mask</div><div class="treatment-price">250K</div></div><div class="treatment-arrow">→</div></div>
+            <div class="treatment-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="treatment-info-compact"><div class="treatment-name">Manicure / Pedicure</div><div class="treatment-desc">Nail care, cuticle, dead skin removal</div><div class="treatment-price">200K each</div></div><div class="treatment-arrow">→</div></div>
+        </div>
+    </div>
+
+    <!-- Category 3: Beauty Enhancements -->
+    <div class="category-block">
+        <div class="category-visual">
+            <img class="category-img" src="https://images.unsplash.com/photo-1594650847498-7a50b4d0c1b6?w=150&h=150&fit=crop" alt="Beauty">
+            <div class="category-desc">Elevate your natural beauty with our precision lash and nail artistry.</div>
+        </div>
+        <div class="treatments-grid">
+            <div class="treatment-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="treatment-info-compact"><div class="treatment-name">Eyelash Extensions</div><div class="treatment-desc">Natural volume lashes</div><div class="treatment-price">From 290K</div></div><div class="treatment-arrow">→</div></div>
+            <div class="treatment-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="treatment-info-compact"><div class="treatment-name">Lash Lift & Tint</div><div class="treatment-desc">Lift, curl & tint for effortless beauty</div><div class="treatment-price">250K</div></div><div class="treatment-arrow">→</div></div>
+            <div class="treatment-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="treatment-info-compact"><div class="treatment-name">Ear Candle</div><div class="treatment-desc">Traditional ear candling therapy</div><div class="treatment-price">Upon request</div></div><div class="treatment-arrow">→</div></div>
+            <div class="treatment-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="treatment-info-compact"><div class="treatment-name">Gel Polish</div><div class="treatment-desc">Long-lasting gel finish</div><div class="treatment-price">+50K</div></div><div class="treatment-arrow">→</div></div>
+            <div class="treatment-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="treatment-info-compact"><div class="treatment-name">Normal Polish</div><div class="treatment-desc">Classic polish finish</div><div class="treatment-price">Included</div></div><div class="treatment-arrow">→</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- WELLNESS TIPS BLOCK -->
+<section id="wellness" class="wellness-block">
+    <div class="wellness-container">
+        <div class="wellness-visual">
+            <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=800&h=600&fit=crop" alt="Wellness">
+        </div>
+        <div>
+            <div class="wellness-tip"><h4>🌿 Before Your Massage</h4><p>Arrive 10 minutes early to settle in. Avoid heavy meals 1-2 hours before.</p></div>
+            <div class="wellness-tip"><h4>💧 Hydration Is Key</h4><p>Drink plenty of water after treatment to flush out released toxins.</p></div>
+            <div class="wellness-tip"><h4>🌸 Balinese Healing Wisdom</h4><p>Our therapists use techniques passed down through generations.</p></div>
+            <div class="wellness-tip"><h4>🍃 Post-Treatment Care</h4><p>For lash lift: avoid water & steam for 24h. For nails: let polish cure 30min.</p></div>
+            <div class="wellness-quote">“Self-care is not a luxury — it’s how you return to yourself.”</div>
+        </div>
+    </div>
+</section>
+
+<!-- REVIEWS - dynamic smooth carousel -->
+<section id="reviews" class="reviews-section">
+    <h2 class="section-title">Whispers From Our Guests</h2>
+    <div class="swiper reviewSwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">“One of the best relaxing time, really enjoy and comfortable with the service. The place was very clean and serene.”</div><div class="review-author">— Ayu W.</div></div></div>
+            <div class="swiper-slide"><div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">“The massage is amazing! My husband and I came with back pain and felt much lighter afterwards. Highly recommend.”</div><div class="review-author">— Sarah & Michael</div></div></div>
+            <div class="swiper-slide"><div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">“Absolutely gem in Ubud! Authentic Balinese massage and great hospitality. Best relaxation spot on the island.”</div><div class="review-author">— David Chen</div></div></div>
+            <div class="swiper-slide"><div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">“Beautiful atmosphere and professional staff. The lash lift exceeded my expectations! Will definitely come back.”</div><div class="review-author">— Maria G.</div></div></div>
+            <div class="swiper-slide"><div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">“Pure bliss! The attention to detail and warm welcome made my day. Best manicure I've had in Bali.”</div><div class="review-author">— Jessica T.</div></div></div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev" style="color:#C5A267;"></div>
+        <div class="swiper-button-next" style="color:#C5A267;"></div>
+    </div>
+</section>
+
+<!-- BOOKING + MAP -->
+<section id="booking" class="booking-section section">
+    <h2 class="section-title">Secure Your Moment</h2>
+    <div class="booking-wrapper">
+        <div class="booking-info">
+            <h3>Begin Your Journey</h3>
+            <p><i class="fas fa-calendar-alt"></i> Open daily · 10:00 – 22:00</p>
+            <p><i class="fab fa-whatsapp"></i> +62 813-2580-3964</p>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.071574608758!2d115.2479539!3d-8.5177534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd23d002e0e38f1%3A0xc5afdd877aa00c1b!2sDd%20beauty%20%26%20Relaxtion%20(massage)!5e0!3m2!1sen!2sid!4v1710000000000!5m2!1sen!2sid" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem;">Jl. Katik Lantang, Singakerta, Ubud, Bali 80571</p>
+        </div>
+        <div>
+            <form id="bookingForm">
+                <div class="form-group"><input type="text" id="name" placeholder="Your Name *" required></div>
+                <div class="form-group"><input type="tel" id="phone" placeholder="WhatsApp Number *" required></div>
+                <div class="form-group"><select id="service" required><option value="">Select Treatment</option><option>Traditional Balinese Massage</option><option>Warm Oil Massage</option><option>Aromatherapy Massage</option><option>Warm Stone Massage</option><option>Deep Tissue</option><option>Head Massage</option><option>Balinese Borch</option><option>Foot Massage</option><option>Body Scrub & Mask</option><option>Facial & Mask</option><option>Manicure / Pedicure</option><option>Eyelash Extensions</option><option>Lash Lift & Tint</option></select></div>
+                <div class="form-group"><input type="text" id="datePicker" placeholder="Select Date" readonly></div>
+                <div class="form-group"><select id="timeSlot" required><option value="">Select Time</option><option>10:00</option><option>11:00</option><option>12:00</option><option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17:00</option><option>18:00</option><option>19:00</option><option>20:00</option><option>21:00</option></select></div>
+                <div class="form-group"><textarea rows="2" placeholder="Special requests"></textarea></div>
+                <button type="submit" class="btn-submit">Book via WhatsApp →</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-grid">
+        <div><h4>DD Beauty & Relaxation</h4><p>Ubud's sanctuary for holistic beauty.</p><div class="social-links"><a href="https://wa.me/6281325803964"><i class="fab fa-whatsapp"></i></a><a href="https://www.instagram.com/dd_beauty__relaxtion"><i class="fab fa-instagram"></i></a></div></div>
+        <div><h4>Open Hours</h4><p>Mon - Sun: 10:00 – 22:00</p><p>WhatsApp: +62 813-2580-3964</p></div>
+    </div>
+    <div style="text-align:center; border-top:1px solid rgba(197,162,103,0.3); padding-top:2rem;">© 2026 DD Beauty & Relaxation — Where Bali Meets Beauty</div>
+</footer>
+
+<script>
+    const reviewSwiper = new Swiper('.reviewSwiper', {
+        loop: true,
+        autoplay: { delay: 3800, disableOnInteraction: false, pauseOnMouseEnter: true },
+        speed: 800,
+        slidesPerView: 1,
+        spaceBetween: 24,
+        pagination: { el: '.swiper-pagination', clickable: true, dynamicBullets: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+    });
+    flatpickr("#datePicker", { minDate: "today", dateFormat: "d M Y", disableMobile: true });
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value, phone = document.getElementById('phone').value, service = document.getElementById('service').value, date = document.getElementById('datePicker').value, time = document.getElementById('timeSlot').value;
+        if(!name || !phone || !service || !date || !time) { alert("Please fill all fields."); return; }
+        window.open(`https://wa.me/6281325803964?text=*DD Beauty Booking*%0A%0AName: ${name}%0AWhatsApp: ${phone}%0AService: ${service}%0ADate: ${date}%0ATime: ${time}`, '_blank');
+    });
+</script>
+</body>
+</html>
