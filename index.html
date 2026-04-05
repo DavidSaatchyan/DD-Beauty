@@ -1,496 +1,636 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Hands Spa Bali — Changgu | Healing Spa</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Hands Spa Studio | Canggu's Premier Spa Destination</title>
+    <!-- Google Fonts for clean typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (free icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      background-color: #0F0D0A;
-      font-family: system-ui, -apple-system, 'Inter', 'Helvetica Neue', sans-serif;
-      color: #ECE4D9;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
+        body {
+            background-color: #f9f6ef;   /* warm neutral background */
+            font-family: 'Inter', sans-serif;
+            color: #2c2b28;
+            line-height: 1.4;
+        }
 
-    /* custom scroll */
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #1F1B17;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #C47A4D;
-      border-radius: 10px;
-    }
+        /* main container with max-width for readability, centered */
+        .site-wrapper {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 0 40px rgba(0,0,0,0.03);
+        }
 
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 28px;
-    }
+        /* spacing & containers */
+        section {
+            padding: 2.5rem 2rem;
+            border-bottom: 1px solid #f0ebe3;
+        }
 
-    /* textures & atmosphere */
-    .bg-noise {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjciIG51bU9jdGF2ZXM9IjMiLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjZikiIG9wYWNpdHk9IjAuMDYiLz48L3N2Zz4=');
-      pointer-events: none;
-      z-index: 0;
-    }
+        .container-narrow {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
 
-    /* header */
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 24px 0;
-      backdrop-filter: blur(12px);
-      background: rgba(15, 13, 10, 0.65);
-      z-index: 100;
-      border-bottom: 1px solid rgba(236, 228, 217, 0.12);
-    }
+        /* typography */
+        h1, h2, h3, .logo-text, .pre-title {
+            font-family: 'Playfair Display', serif;
+        }
 
-    .header-flex {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
+        .pre-title {
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            font-weight: 500;
+            color: #b87c4f;
+            margin-bottom: 0.75rem;
+        }
 
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 400;
-      letter-spacing: -0.02em;
-    }
-    .logo span {
-      font-weight: 600;
-      color: #E4A26C;
-    }
-    .nav a {
-      color: #ECE4D9;
-      text-decoration: none;
-      margin-left: 32px;
-      font-size: 0.95rem;
-      letter-spacing: 0.3px;
-      transition: 0.2s;
-    }
-    .nav a:hover { color: #E4A26C; }
+        h2 {
+            font-size: 2.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #2c2b28;
+            letter-spacing: -0.3px;
+        }
 
-    /* hero video atmosphere */
-    .hero {
-      height: 100vh;
-      min-height: 700px;
-      display: flex;
-      align-items: center;
-      position: relative;
-      background: radial-gradient(circle at 20% 30%, #2A241E, #0A0806);
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=80&w=2070&auto=format') center/cover no-repeat;
-      opacity: 0.35;
-      z-index: 0;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 620px;
-    }
-    .hero-content h1 {
-      font-size: 4.8rem;
-      font-weight: 400;
-      line-height: 1.1;
-      margin-bottom: 24px;
-    }
-    .hero-content p {
-      font-size: 1.2rem;
-      color: #D9CFC4;
-      margin-bottom: 40px;
-    }
-    .btn-primary {
-      background: #C47A4D;
-      border: none;
-      padding: 14px 38px;
-      border-radius: 60px;
-      font-size: 1rem;
-      font-weight: 500;
-      color: white;
-      cursor: pointer;
-      transition: 0.25s;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
-    .btn-primary:hover {
-      background: #D99162;
-      transform: scale(1.02);
-    }
+        .section-desc {
+            color: #5a5a57;
+            max-width: 650px;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
 
-    /* services */
-    .services {
-      padding: 110px 0;
-      background: #0F0D0A;
-    }
-    .section-title {
-      font-size: 2.8rem;
-      font-weight: 400;
-      text-align: center;
-      margin-bottom: 64px;
-      letter-spacing: -0.01em;
-    }
-    .cards-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      justify-content: center;
-    }
-    .service-card {
-      background: rgba(30, 26, 22, 0.7);
-      backdrop-filter: blur(4px);
-      border-radius: 42px;
-      padding: 36px 28px;
-      width: 300px;
-      border: 1px solid rgba(196, 122, 77, 0.25);
-      transition: all 0.3s ease;
-    }
-    .service-card:hover {
-      border-color: #C47A4D;
-      transform: translateY(-6px);
-      background: rgba(30, 26, 22, 0.9);
-    }
-    .service-icon {
-      font-size: 2.8rem;
-      margin-bottom: 20px;
-    }
-    .service-card h3 {
-      font-size: 1.8rem;
-      font-weight: 500;
-      margin-bottom: 12px;
-    }
-    .price {
-      font-size: 1.6rem;
-      color: #E4A26C;
-      margin: 20px 0 8px;
-    }
-    .duration {
-      font-size: 0.85rem;
-      opacity: 0.7;
-      margin-bottom: 28px;
-    }
-    .book-service {
-      background: transparent;
-      border: 1px solid #C47A4D;
-      padding: 10px 0;
-      width: 100%;
-      border-radius: 50px;
-      color: #ECE4D9;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-    .book-service:hover {
-      background: #C47A4D;
-      color: #0F0D0A;
-    }
+        /* buttons */
+        .btn {
+            display: inline-block;
+            background-color: #c28a5c;
+            color: white;
+            border: none;
+            padding: 0.9rem 2rem;
+            font-weight: 600;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+        }
 
-    /* why us (atmosphere) */
-    .why {
-      padding: 90px 0;
-      background: #15110E;
-      text-align: center;
-    }
-    .features {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 56px;
-      margin-top: 48px;
-    }
-    .feature-item {
-      max-width: 220px;
-    }
-    .feature-icon {
-      font-size: 2.4rem;
-      margin-bottom: 16px;
-    }
+        .btn-outline-light {
+            background: transparent;
+            border: 1.5px solid #c28a5c;
+            color: #c28a5c;
+        }
 
-    /* gallery immersive */
-    .gallery {
-      padding: 90px 0;
-    }
-    .gallery-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .gallery-card {
-      width: 320px;
-      height: 420px;
-      border-radius: 36px;
-      background-size: cover;
-      background-position: center;
-      transition: 0.3s;
-      filter: grayscale(0.2);
-    }
-    .gallery-card:hover {
-      filter: grayscale(0);
-      transform: scale(0.98);
-    }
+        .btn-outline-light:hover {
+            background: #c28a5c;
+            color: white;
+        }
 
-    /* booking modal (clean + only WhatsApp) */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.85);
-      backdrop-filter: blur(10px);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    .modal-card {
-      background: #191612;
-      max-width: 480px;
-      width: 90%;
-      border-radius: 48px;
-      padding: 40px 32px;
-      border: 1px solid rgba(196,122,77,0.5);
-      position: relative;
-    }
-    .close {
-      position: absolute;
-      top: 20px;
-      right: 28px;
-      font-size: 32px;
-      cursor: pointer;
-      color: #BCA88F;
-    }
-    .modal-card h3 {
-      font-size: 2rem;
-      margin-bottom: 12px;
-    }
-    .input-group {
-      margin-bottom: 28px;
-    }
-    input, select {
-      width: 100%;
-      padding: 14px 18px;
-      background: #2C2520;
-      border: 1px solid #4F3E32;
-      border-radius: 60px;
-      color: #F0E3D8;
-      font-size: 1rem;
-    }
-    .whatsapp-btn {
-      background: #25D366;
-      border: none;
-      padding: 14px;
-      width: 100%;
-      border-radius: 60px;
-      font-weight: bold;
-      font-size: 1.1rem;
-      color: #0F0D0A;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      cursor: pointer;
-    }
-    .footnote {
-      font-size: 0.7rem;
-      text-align: center;
-      margin-top: 20px;
-      opacity: 0.6;
-    }
+        .btn-wa {
+            background-color: #25D366;
+            color: white;
+        }
 
-    /* floating CTA */
-    .float-wa {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background: #25D366;
-      padding: 14px 26px;
-      border-radius: 80px;
-      color: #0F0D0A;
-      font-weight: bold;
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      z-index: 99;
-      cursor: pointer;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
-      border: none;
-    }
+        .btn-wa:hover {
+            background-color: #20b859;
+        }
 
-    footer {
-      padding: 56px 0 40px;
-      border-top: 1px solid rgba(236,228,217,0.1);
-      text-align: center;
-    }
-    @media (max-width: 800px) {
-      .hero-content h1 { font-size: 2.8rem; }
-      .nav { display: none; }
-      .container { padding: 0 20px; }
-      .section-title { font-size: 2rem; }
-    }
-  </style>
+        /* header / hero */
+        .hero {
+            background: linear-gradient(135deg, #fefaf5 0%, #f7efe6 100%);
+            padding: 2rem 2rem 3rem 2rem;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .logo h1 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            color: #2c2b28;
+        }
+        .logo p {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: #b87c4f;
+            margin-top: -4px;
+        }
+
+        .nav-links a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: #2c2b28;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .hero-text {
+            flex: 1.2;
+        }
+
+        .hero-text h2 {
+            font-size: 3rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #4d4c48;
+            margin: 1rem 0 1.8rem;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-badge {
+            flex: 0.8;
+            background: #ffffffd9;
+            padding: 1.2rem;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+        }
+
+        .hero-badge i {
+            font-size: 2rem;
+            color: #c28a5c;
+            margin-bottom: 0.5rem;
+        }
+
+        /* menu grid (signature treatments) */
+        .treatments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .treatment-card {
+            background: #fffefc;
+            border-radius: 24px;
+            padding: 1.2rem 1.5rem 1.8rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+            border: 1px solid #f0e5db;
+            transition: all 0.2s;
+        }
+
+        .treatment-category {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #b87c4f;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .treatment-title {
+            font-size: 1.45rem;
+            font-weight: 700;
+            margin: 0.25rem 0 0.75rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .treatment-desc {
+            font-size: 0.85rem;
+            color: #65635f;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .treatment-option {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px dashed #e9e0d6;
+            padding: 0.7rem 0 0.3rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .price {
+            color: #c28a5c;
+            font-weight: 700;
+        }
+
+        .tax-note {
+            font-size: 0.7rem;
+            color: #9b8e7e;
+            text-align: right;
+            margin-top: 2rem;
+            font-style: italic;
+        }
+
+        /* booking form */
+        .booking-form-card {
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.05);
+            border: 1px solid #efe3d8;
+            padding: 2rem;
+            margin-top: 1rem;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 0.8rem;
+            display: block;
+            margin-bottom: 0.4rem;
+            color: #4f4e4a;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border: 1px solid #e2d9cf;
+            border-radius: 20px;
+            font-family: 'Inter', sans-serif;
+            background: #fefcf9;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #c28a5c;
+            box-shadow: 0 0 0 2px rgba(194,138,92,0.2);
+        }
+
+        .submit-btn {
+            background-color: #c28a5c;
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 40px;
+        }
+
+        .info-note {
+            font-size: 0.75rem;
+            text-align: center;
+            margin-top: 1rem;
+            color: #8b7f6e;
+        }
+
+        /* footer + location */
+        .footer-info {
+            background: #faf7f2;
+            padding: 2.5rem 2rem;
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #4d4a45;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-col i {
+            width: 1.6rem;
+            color: #c28a5c;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e3d9cf;
+            font-size: 0.7rem;
+            color: #958b7c;
+        }
+
+        @media (max-width: 780px) {
+            section {
+                padding: 2rem 1.2rem;
+            }
+            .hero-text h2 {
+                font-size: 2.2rem;
+            }
+            .navbar {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            .nav-links a {
+                margin-left: 0;
+                margin-right: 1.5rem;
+            }
+        }
+
+        .dropdown-select {
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23c28a5c" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+        }
+
+        .whatsapp-chip {
+            background: #25D36610;
+            border-radius: 50px;
+            padding: 0.4rem 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+    </style>
 </head>
 <body>
-<div class="bg-noise"></div>
-
-<header>
-  <div class="container header-flex">
-    <div class="logo">HANDS <span>SPA</span> BALI</div>
-    <div class="nav">
-      <a href="#services">Treatments</a>
-      <a href="#why">Vibe</a>
-      <a href="#gallery">Moments</a>
+<div class="site-wrapper">
+    <!-- HERO section (first screenshot: Hands, Book Now, WhatsApp, Canggu's Premier etc) -->
+    <div class="hero">
+        <div class="container-narrow">
+            <div class="navbar">
+                <div class="logo">
+                    <h1>HANDS</h1>
+                    <p>SPA STUDIO</p>
+                </div>
+                <div class="nav-links">
+                    <a href="#">About Us</a>
+                    <a href="#">Treatments</a>
+                    <a href="#">Book Now</a>
+                    <a href="#">Location</a>
+                </div>
+            </div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="pre-title">Canggu's Premier Spa Destination</div>
+                    <h2>Experience<br>Balinese Luxury</h2>
+                    <p>Immerse yourself in authentic Balinese wellness traditions. Expert therapists, premium treatments, and serene atmosphere await you.</p>
+                    <div class="hero-buttons">
+                        <a href="#booking-section" class="btn">Book Your Experience</a>
+                        <a href="#" class="btn btn-outline-light"><i class="fab fa-whatsapp"></i> Contact on WhatsApp</a>
+                    </div>
+                </div>
+                <div class="hero-badge">
+                    <i class="fas fa-spa"></i>
+                    <p style="font-weight:600; margin-top:6px;">Authentic<br>Balinese</p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</header>
 
-<section class="hero">
-  <div class="container hero-content">
-    <h1>Healing in Changgu<br>by Hands Spa</h1>
-    <p>Natural oils, ocean breeze & silent luxury. Reconnect through touch.</p>
-    <button class="btn-primary" id="heroBookBtn">Book your ritual →</button>
-  </div>
-</section>
+    <!-- OUR MENU SECTION (second screenshot: Signature treatments, prices) -->
+    <section>
+        <div class="container-narrow">
+            <div class="pre-title" style="text-align:center;">OUR MENU</div>
+            <h2 style="text-align:center;">Signature Treatments</h2>
+            <p style="text-align:center; max-width:650px; margin:0 auto 2rem auto;">Discover our curated selection of traditional Balinese therapies and modern wellness treatments, each designed to provide a transformative experience.</p>
+            <p style="text-align:center; font-size:0.75rem; color:#9e8e7c; margin-bottom:2rem;"><i>*All prices do not include 15% tax*</i></p>
+            
+            <div class="treatments-grid">
+                <!-- Traditional Massage block -->
+                <div class="treatment-card">
+                    <div class="treatment-category">Traditional Massage</div>
+                    <div class="treatment-title">Signature Massage</div>
+                    <div class="treatment-option">
+                        <span><strong>Deep-Tissue Massage</strong><br><span style="font-size:0.7rem;">Targeted massage focusing on deeper muscle layers to relieve tension, reduce pain and improve mobility. Perfect for chronic aches or recovery.</span></span>
+                        <span class="price">60 min / IDR 450K</span>
+                    </div>
+                    <div class="treatment-option">
+                        <span><strong>Deep-Tissue Massage</strong><br><span style="font-size:0.7rem;">Extended deep-tissue session for comprehensive muscle therapy.</span></span>
+                        <span class="price">90 min / IDR 600K</span>
+                    </div>
+                    <div class="treatment-option">
+                        <span><strong>Sports Massage</strong><br><span style="font-size:0.7rem;">Dynamic treatment designed to enhance performance, prevent injuries and aid recovery. Ideal for active lifestyles and athletes.</span></span>
+                        <span class="price">60 min / IDR 450K</span>
+                    </div>
+                    <div class="treatment-option">
+                        <span><strong>Sports Massage</strong><br><span style="font-size:0.7rem;">Comprehensive sports massage for optimal athletic recovery.</span></span>
+                        <span class="price">90 min / IDR 600K</span>
+                    </div>
+                    <div class="treatment-option">
+                        <span><strong>Oil-Free Massage</strong><br><span style="font-size:0.7rem;">Rejuvenating treatment using stretching, acupressure and rhythmic techniques without oils, perfect for restoring energy and flexibility.</span></span>
+                        <span class="price">60 min / IDR 450K</span>
+                    </div>
+                    <div class="treatment-option">
+                        <span><strong>Oil-Free Massage</strong><br><span style="font-size:0.7rem;">Extended oil-free massage session for maximum flexibility.</span></span>
+                        <span class="price">90 min / IDR 600K</span>
+                    </div>
+                </div>
+                
+                <!-- Special Massage + Lounge + Facial etc -->
+                <div class="treatment-card">
+                    <div class="treatment-category">Special Massage &amp; Therapies</div>
+                    <div class="treatment-title">Lounge Massage</div>
+                    <div class="treatment-desc" style="margin-top: 6px;">Ultimate relaxation experience with soothing essential oils and gentle pressure. Perfect for stress release.</div>
+                    <div class="treatment-option"><span>Lounge Massage 75 min</span><span class="price">IDR 520,000</span></div>
+                    <div class="treatment-option"><span>Lounge Massage + Herbal Compress</span><span class="price">IDR 680,000</span></div>
+                    <div style="margin: 1rem 0 0.5rem 0; border-top:1px solid #eee;"></div>
+                    <div class="treatment-category">Facial Treatment</div>
+                    <div class="treatment-title">Dermalogica Signature</div>
+                    <div class="treatment-option"><span>ProSkin 60 min</span><span class="price">IDR 590,000</span></div>
+                    <div class="treatment-option"><span>Brightening Booster 75 min</span><span class="price">IDR 750,000</span></div>
+                    <div class="treatment-option"><span>Hydration + Bio-active</span><span class="price">IDR 890,000</span></div>
+                </div>
+                
+                <!-- Special Packages + Membership -->
+                <div class="treatment-card">
+                    <div class="treatment-category">Special Package</div>
+                    <div class="treatment-title">Balinese Ritual Duo</div>
+                    <div class="treatment-option"><span>Body Scrub + Cream Bath + Massage (120 min)</span><span class="price">IDR 850,000</span></div>
+                    <div class="treatment-option"><span>Couple's Retreat (massage + flower bath)</span><span class="price">IDR 1,490,000</span></div>
+                    <div class="treatment-option"><span>Hot Stone & Deep Tissue Fusion (90 min)</span><span class="price">IDR 690,000</span></div>
+                    <div style="margin: 1rem 0 0.5rem 0; border-top:1px solid #eee;"></div>
+                    <div class="treatment-category">Membership</div>
+                    <div class="treatment-title">Wellness Club</div>
+                    <div class="treatment-desc">Monthly membership: 1 massage + 1 facial + 20% off all treatments</div>
+                    <div class="treatment-option"><span>Monthly (auto-renew)</span><span class="price">IDR 1,200,000</span></div>
+                    <div class="treatment-option"><span>Annual VIP - unlimited express</span><span class="price">IDR 9,800,000</span></div>
+                </div>
+            </div>
+            <div class="tax-note">*All prices do not include 15% government tax & service charge</div>
+        </div>
+    </section>
 
-<section id="services" class="services">
-  <div class="container">
-    <h2 class="section-title">— treatments —</h2>
-    <div class="cards-grid">
-      <div class="service-card"><div class="service-icon">🌴</div><h3>Deep Tissue</h3><p>Release deep tension, expert hands</p><div class="price">350K IDR</div><div class="duration">60 min</div><button class="book-service" data-service="Deep Tissue (350k)">book</button></div>
-      <div class="service-card"><div class="service-icon">🔥</div><h3>Balinese Boreh</h3><p>Warming herbs & traditional compress</p><div class="price">420K IDR</div><div class="duration">90 min</div><button class="book-service" data-service="Balinese Boreh (420k)">book</button></div>
-      <div class="service-card"><div class="service-icon">🤲</div><h3>Hands Signature</h3><p>Hot stone + aromatic massage</p><div class="price">480K IDR</div><div class="duration">90 min</div><button class="book-service" data-service="Hands Signature (480k)">book</button></div>
+    <!-- BOOKING SECTION (third screenshot: Book Your Treatment form) -->
+    <section id="booking-section" style="background: #fefbf7;">
+        <div class="container-narrow">
+            <div class="pre-title" style="text-align:center;">Reserve Your Moment</div>
+            <h2 style="text-align:center;">Book Your Treatment</h2>
+            <p style="text-align:center; margin-bottom: 2rem;">Select your preferred treatment, date, and time. We’ll confirm your booking via WhatsApp.</p>
+            
+            <div class="booking-form-card">
+                <form id="bookingForm" action="#" method="post">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" placeholder="Your name" required id="fullName">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="you@email.com" id="email">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>WhatsApp Number *</label>
+                            <input type="tel" placeholder="+62 xxx xxx xxx" required id="whatsapp">
+                        </div>
+                        <div class="form-group">
+                            <label>Select Treatment *</label>
+                            <select class="dropdown-select" id="treatmentSelect" required>
+                                <option value="" disabled selected>Choose your treatment</option>
+                                <option>Deep-Tissue Massage (60min) - IDR 450k</option>
+                                <option>Deep-Tissue Massage (90min) - IDR 600k</option>
+                                <option>Sports Massage (60min) - IDR 450k</option>
+                                <option>Sports Massage (90min) - IDR 600k</option>
+                                <option>Oil-Free Massage (60min) - IDR 450k</option>
+                                <option>Oil-Free Massage (90min) - IDR 600k</option>
+                                <option>Lounge Massage 75min - IDR 520k</option>
+                                <option>Dermalogica Facial ProSkin - IDR 590k</option>
+                                <option>Balinese Ritual Duo Package - IDR 850k</option>
+                                <option>Couple's Retreat - IDR 1,490k</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Preferred Date *</label>
+                            <input type="date" required id="prefDate">
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Time</label>
+                            <select id="prefTime">
+                                <option>Select time</option>
+                                <option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option>
+                                <option>01:00 PM</option><option>02:00 PM</option><option>03:00 PM</option>
+                                <option>04:00 PM</option><option>05:00 PM</option><option>06:00 PM</option>
+                                <option>07:00 PM</option><option>08:00 PM</option><option>09:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Additional Notes (Optional)</label>
+                        <textarea rows="2" placeholder="Any special requests or requirements?"></textarea>
+                    </div>
+                    <button type="submit" class="btn submit-btn" style="margin-top: 1.5rem;"><i class="fab fa-whatsapp"></i> Submit Booking Request</button>
+                    <div class="info-note">We’ll confirm your booking via WhatsApp within 24 hours.</div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER + LOCATION / VISIT US (matching third screenshot) -->
+    <div class="footer-info">
+        <div class="container-narrow">
+            <div style="margin-bottom: 2rem; text-align: center;">
+                <div class="pre-title">VISIT US</div>
+                <h2>Find Our Sanctuary</h2>
+                <p>Located in the heart of Canggu, Bali. We’re easy to find and ready to welcome you.</p>
+            </div>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4><i class="fas fa-map-marker-alt"></i> Location</h4>
+                    <p>Canggu, Bali, Indonesia</p>
+                    <a href="#"><i class="fas fa-external-link-alt"></i> View on Google Maps →</a>
+                    <p style="margin-top: 1rem;"><i class="fas fa-phone-alt"></i> +6281139006375</p>
+                    <p><i class="fab fa-whatsapp"></i> <a href="#">Message Us on WhatsApp</a></p>
+                </div>
+                <div class="footer-col">
+                    <h4>Opening Hours</h4>
+                    <p>Every Day<br>10:00 AM – 10:00 PM</p>
+                    <h4 style="margin-top: 1rem;">Connect With Us</h4>
+                    <p><i class="fab fa-instagram"></i> @handsspacanggu</p>
+                    <p><i class="fab fa-facebook"></i> Hands Spa Studio</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Navigation</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Treatments</a>
+                    <a href="#">Book Now</a>
+                    <a href="#">Location</a>
+                    <p style="margin-top: 1rem;"><i class="fas fa-envelope"></i> hello@handsspa.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Made with <i class="fas fa-heart" style="color:#c28a5c;"></i> Emergent & Balinese tradition — HANDS SPA STUDIO</p>
+                <p>+6281139006375 | Canggu, Bali, Indonesia</p>
+            </div>
+        </div>
     </div>
-  </div>
-</section>
-
-<section id="why" class="why">
-  <div class="container">
-    <h2 class="section-title">— changgu soul —</h2>
-    <div class="features">
-      <div class="feature-item"><div class="feature-icon">🌾</div><h4>Organic oils</h4><p>Coconut & frangipani blends</p></div>
-      <div class="feature-item"><div class="feature-icon">🕯️</div><h4>Silent rooms</h4><p>No noise, only healing</p></div>
-      <div class="feature-item"><div class="feature-icon">🌊</div><h4>5min to beach</h4><p>After-spa sunset walk</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="gallery" class="gallery">
-  <div class="container">
-    <h2 class="section-title">— immerse —</h2>
-    <div class="gallery-grid">
-      <div class="gallery-card" style="background-image: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1974&auto=format')"></div>
-      <div class="gallery-card" style="background-image: url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=80&w=2070&auto=format')"></div>
-      <div class="gallery-card" style="background-image: url('https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?q=80&w=2070&auto=format')"></div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <p>📍 Jl. Batu Mejan, Changgu — open daily 10am – 9pm</p>
-    <p style="margin-top: 12px;">✨ @handsspa.bali | +62 812-3988-2210 ✨</p>
-  </div>
-</footer>
-
-<button class="float-wa" id="floatingWaBtn">💬 Book via WhatsApp</button>
-
-<!-- MODAL (only name + wa) -->
-<div id="bookingModal" class="modal">
-  <div class="modal-card">
-    <span class="close">&times;</span>
-    <h3>Secure your moment</h3>
-    <p style="margin-bottom: 24px;">We’ll reply within 30 min</p>
-    <div class="input-group">
-      <input type="text" id="clientName" placeholder="Your name" autocomplete="off">
-    </div>
-    <div class="input-group">
-      <input type="text" id="whatsappNumber" placeholder="WhatsApp number (with country code)">
-    </div>
-    <div class="input-group">
-      <select id="selectedServiceModal">
-        <option value="Deep Tissue (350k)">Deep Tissue — 350k</option>
-        <option value="Balinese Boreh (420k)">Balinese Boreh — 420k</option>
-        <option value="Hands Signature (480k)">Hands Signature — 480k</option>
-      </select>
-    </div>
-    <button id="sendWhatsAppLead" class="whatsapp-btn">📲 Send via WhatsApp</button>
-    <div class="footnote">No spam, just confirmation</div>
-  </div>
 </div>
 
+<!-- simple interactive simulation: on submit show a WhatsApp alert -->
 <script>
-  // modal logic
-  const modal = document.getElementById('bookingModal');
-  const openModalBtns = document.querySelectorAll('.book-service, #heroBookBtn, #floatingWaBtn');
-  const closeModalBtn = document.querySelector('.close');
-  const sendBtn = document.getElementById('sendWhatsAppLead');
-
-  let preselectedService = '';
-
-  function openModal(serviceName = null) {
-    if(serviceName) {
-      preselectedService = serviceName;
-      const selectEl = document.getElementById('selectedServiceModal');
-      if(selectEl && serviceName) {
-        for(let i=0; i<selectEl.options.length; i++) {
-          if(selectEl.options[i].value === serviceName) {
-            selectEl.selectedIndex = i;
-            break;
-          }
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('fullName').value.trim();
+        const wa = document.getElementById('whatsapp').value.trim();
+        const treatment = document.getElementById('treatmentSelect').value;
+        const date = document.getElementById('prefDate').value;
+        if(!name || !wa || !treatment || !date) {
+            alert("Please fill all required fields (Full Name, WhatsApp, Treatment, Date).");
+            return;
         }
-      }
-    } else {
-      preselectedService = '';
-    }
-    modal.style.display = 'flex';
-  }
-
-  function closeModal() { modal.style.display = 'none'; }
-
-  openModalBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const serviceAttr = btn.getAttribute('data-service');
-      if(serviceAttr) openModal(serviceAttr);
-      else openModal();
+        // simulate WhatsApp confirmation message
+        const message = `Hi Hands Spa Studio! I'd like to book a treatment.%0AName: ${encodeURIComponent(name)}%0ATreatment: ${encodeURIComponent(treatment)}%0ADate: ${encodeURIComponent(date)}%0ATime: ${encodeURIComponent(document.getElementById('prefTime').value)}%0AWhatsApp: ${wa}`;
+        const whatsappUrl = `https://wa.me/6281139006375?text=${message}`;
+        // Open in new tab to mimic actual booking request (as per design)
+        window.open(whatsappUrl, '_blank');
+        alert("Booking request sent! You will be redirected to WhatsApp to confirm. We'll respond within 24 hours.");
+        // optionally reset? not necessary
     });
-  });
-  closeModalBtn.addEventListener('click', closeModal);
-  window.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
-
-  // send to WhatsApp (direct chat)
-  sendBtn.addEventListener('click', () => {
-    const name = document.getElementById('clientName').value.trim();
-    const wa = document.getElementById('whatsappNumber').value.trim();
-    const service = document.getElementById('selectedServiceModal').value;
-
-    if(!name || !wa) {
-      alert("Please fill name and WhatsApp number 🙏");
-      return;
-    }
-
-    const message = `Hi Hands Spa Bali! I'd like to book %0A📿 *${service}*%0A👤 Name: ${name}%0A📱 WhatsApp: ${wa}%0A📍 Changgu store - please confirm available time.`;
-    const whatsappNumber = '6281239882210'; // replace with real number
-    const url = `https://wa.me/${whatsappNumber}?text=${message}`;
-    window.open(url, '_blank');
-    closeModal();
-  });
 </script>
 </body>
 </html>
