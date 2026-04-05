@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>HANDS SPA STUDIO | Bali’s Finest Hands-On Healing</title>
-    <!-- Google Fonts: Modern & Elegant -->
+    <title>HANDS SPA STUDIO | Denpasar — Masterpiece of Touch</title>
+    <!-- Google Fonts: clean + elegant -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Swiper -->
@@ -33,20 +33,19 @@
             letter-spacing: -0.01em;
         }
 
-        /* Navigation - dark elegant */
+        /* Navbar — dark & deep */
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
             backdrop-filter: blur(14px);
-            background: rgba(18, 18, 16, 0.92);
+            background: rgba(18, 18, 16, 0.94);
             z-index: 1000;
             padding: 1rem 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid rgba(210, 180, 140, 0.25);
-            transition: 0.2s;
         }
 
         .logo {
@@ -72,7 +71,6 @@
             font-weight: 500;
             font-size: 0.95rem;
             transition: 0.3s;
-            letter-spacing: 0.3px;
         }
 
         .nav-links a:hover { color: #DCC48E; }
@@ -95,9 +93,9 @@
             transform: scale(1.02);
         }
 
-        /* Hero - cinematic */
+        /* Hero */
         .hero {
-            height: 92vh;
+            height: 90vh;
             position: relative;
             display: flex;
             align-items: center;
@@ -140,16 +138,14 @@
             font-size: 4.5rem;
             font-weight: 500;
             margin-bottom: 1rem;
-            text-shadow: 0 2px 15px rgba(0,0,0,0.3);
         }
         .hero p {
             font-size: 1.1rem;
             margin-bottom: 2rem;
             font-weight: 300;
-            letter-spacing: 0.5px;
         }
 
-        /* Section styling */
+        /* Sections */
         .section {
             padding: 5rem 7%;
         }
@@ -171,7 +167,7 @@
             margin: 0.8rem auto 0;
         }
 
-        /* Service menu premium */
+        /* Service cards */
         .service-category {
             margin-bottom: 4rem;
         }
@@ -193,7 +189,6 @@
         .category-sub {
             font-size: 0.8rem;
             color: #8B7A64;
-            letter-spacing: 0.3px;
         }
 
         .services-grid {
@@ -215,13 +210,11 @@
             transform: translateY(-5px);
             border-color: #C9A87C;
             box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
-            background: #FFFFFF;
         }
 
         .service-name {
             font-weight: 700;
             font-size: 1.2rem;
-            font-family: 'Inter', sans-serif;
             margin-bottom: 0.5rem;
             color: #1F1B16;
             display: flex;
@@ -252,7 +245,7 @@
             border-radius: 30px;
         }
 
-        /* wellness + atmosphere */
+        /* Ambiance */
         .ambiance-section {
             background: #F5EFE6;
             padding: 4rem 7%;
@@ -289,20 +282,16 @@
             margin-top: 0.2rem;
         }
 
-        /* testimonials */
+        /* Reviews */
         .reviews-section {
             background: #FCF9F5;
             padding: 5rem 7%;
-        }
-        .review-swiper .swiper-slide {
-            height: auto;
         }
         .review-card {
             background: white;
             border-radius: 28px;
             padding: 2rem;
             text-align: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
             border: 1px solid #F0E5D8;
             transition: all 0.3s;
             height: 100%;
@@ -328,7 +317,7 @@
             color: #A5834F;
         }
 
-        /* booking premium */
+        /* Booking */
         .booking-section {
             background: linear-gradient(135deg, #FFFBF5 0%, #FCF5EA 100%);
         }
@@ -379,16 +368,26 @@
             border-radius: 24px;
             border: 0;
         }
+
+        /* Footer — clean, only essentials */
         .footer {
             background: #1A1712;
             color: #EAD8B5;
-            padding: 3rem 7% 2rem;
+            padding: 2.5rem 7% 1.8rem;
+            text-align: center;
         }
-        .social-links a {
-            color: #EAD8B5;
-            margin-right: 1rem;
-            font-size: 1.4rem;
+        .footer p, .footer .hours {
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            color: #CDBC9F;
         }
+        .footer .small-note {
+            font-size: 0.7rem;
+            border-top: 1px solid rgba(210,180,140,0.2);
+            padding-top: 1.2rem;
+            margin-top: 1rem;
+        }
+
         @media (max-width: 900px) {
             .ambiance-grid, .booking-wrapper { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2.6rem; }
@@ -410,140 +409,67 @@
     <button class="book-btn" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book Now</button>
 </nav>
 
-<!-- Hero with spa atmosphere video (stock premium) -->
+<!-- Hero section -->
 <section class="hero">
-    <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1600">
+    <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=1600">
         <source src="https://cdn.coverr.co/videos/coverr-spa-massage-1715/1080p.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <h1>Art of Hands, Soul of Bali</h1>
-        <p>Deep Tissue • Four Hands • Couple’s Rituals • Signature Massages</p>
+        <p>Deep Tissue • Four Hands • Couple’s Rituals • Dermalogica Facials</p>
         <button class="book-btn" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})" style="background:#EAD8B5; color:#1E1B16;">Begin Your Journey →</button>
     </div>
 </section>
 
-<!-- SERVICES SECTION based on your image data (HANDS SPA STUDIO) -->
+<!-- SERVICES — all data from your image -->
 <section id="services" class="section">
     <h2 class="section-title">Treatments & Masterworks</h2>
+    
+    <!-- Signature Massages -->
     <div class="service-category">
-        <div class="category-header">
-            <h3>Signature Massages</h3>
-            <span class="category-sub">deep harmony, tailored touch</span>
-        </div>
+        <div class="category-header"><h3>Signature Massages</h3><span class="category-sub">deep harmony, tailored touch</span></div>
         <div class="services-grid">
-            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
-                <div class="service-name">Traditional Balinese Massage</div>
-                <div class="service-desc">Acupressure, gentle stretches & essential oils – ancient healing rhythm.</div>
-                <div class="price-row"><span class="price-item">60 min – 400K</span><span class="price-item">90 min – 550K</span></div>
-            </div>
-            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
-                <div class="service-name">Deep Tissue Massage</div>
-                <div class="service-desc">Perfect for chronic aches, recovery & deep muscle release.</div>
-                <div class="price-row"><span class="price-item">90 min – 1.000K</span></div>
-            </div>
-            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
-                <div class="service-name">Sports Massage</div>
-                <div class="service-desc">Dynamic treatment to enhance performance, prevent injuries & aid recovery. Ideal for active lifestyles.</div>
-                <div class="price-row"><span class="price-item">60 min – 650K</span><span class="price-item">90 min – 850K</span></div>
-            </div>
-            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
-                <div class="service-name">Four Hands Massage</div>
-                <div class="service-desc">Two therapists, synchronized movements — ultimate sensory bliss.</div>
-                <div class="price-row"><span class="price-item">60 min – 650K</span><span class="price-item">90 min – 850K</span></div>
-            </div>
-            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
-                <div class="service-name">Warm Oil Massage</div>
-                <div class="service-desc">Nourishing oil & long gliding strokes for deep relaxation.</div>
-                <div class="price-row"><span class="price-item">60 min – 380K</span><span class="price-item">90 min – 520K</span></div>
-            </div>
-            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
-                <div class="service-name">Aromatherapy Massage</div>
-                <div class="service-desc">Calming essential oils to soothe the nervous system.</div>
-                <div class="price-row"><span class="price-item">60 min – 390K</span><span class="price-item">90 min – 560K</span></div>
-            </div>
+            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="service-name">Traditional Balinese Massage</div><div class="service-desc">Acupressure, gentle stretches & essential oils – ancient healing rhythm.</div><div class="price-row"><span class="price-item">60 min – 400K</span><span class="price-item">90 min – 550K</span></div></div>
+            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="service-name">Deep Tissue Massage</div><div class="service-desc">Perfect for chronic aches, recovery & deep muscle release.</div><div class="price-row"><span class="price-item">90 min – 1.000K</span></div></div>
+            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="service-name">Sports Massage</div><div class="service-desc">Dynamic treatment to enhance performance, prevent injuries & aid recovery. Ideal for active lifestyles.</div><div class="price-row"><span class="price-item">60 min – 650K</span><span class="price-item">90 min – 850K</span></div></div>
+            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="service-name">Four Hands Massage</div><div class="service-desc">Two therapists, synchronized movements — ultimate sensory bliss.</div><div class="price-row"><span class="price-item">60 min – 650K</span><span class="price-item">90 min – 850K</span></div></div>
+            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="service-name">Warm Oil Massage</div><div class="service-desc">Nourishing oil & long gliding strokes for deep relaxation.</div><div class="price-row"><span class="price-item">60 min – 380K</span><span class="price-item">90 min – 520K</span></div></div>
+            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="service-name">Aromatherapy Massage</div><div class="service-desc">Calming essential oils to soothe the nervous system.</div><div class="price-row"><span class="price-item">60 min – 390K</span><span class="price-item">90 min – 560K</span></div></div>
         </div>
     </div>
 
+    <!-- Special Packages & Rituals -->
     <div class="service-category">
-        <div class="category-header">
-            <h3>Special Packages & Rituals</h3>
-            <span class="category-sub">couple’s journey • holistic renewal</span>
-        </div>
+        <div class="category-header"><h3>Special Packages & Rituals</h3><span class="category-sub">couple’s journey • holistic renewal</span></div>
         <div class="services-grid">
-            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
-                <div class="service-name">💞 A Love Set for Couples</div>
-                <div class="service-desc">Couple's massage + flower bath + sound healing + 30min body mask with head & face massage.</div>
-                <div class="price-row"><span class="price-item">90 min – 1.700K</span></div>
-            </div>
-            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
-                <div class="service-name">✨ New Love Set for Couples</div>
-                <div class="service-desc">Scrub + 30min body mask + soothing head & face massage + flower bath ritual.</div>
-                <div class="price-row"><span class="price-item">150 min – 2.900K</span></div>
-            </div>
-            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
-                <div class="service-name">🌸 Balinese Boreh / Body Scrub & Mask</div>
-                <div class="service-desc">Traditional spice scrub & nourishing mask + Balinese massage.</div>
-                <div class="price-row"><span class="price-item">90 min – 550K</span></div>
-            </div>
-            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
-                <div class="service-name">Facial Harmony — Dermalogica</div>
-                <div class="service-desc">Deep Cleanse / Soothing Skin / Rejuvenate — radiant & pure.</div>
-                <div class="price-row"><span class="price-item">60 min – 450K</span><span class="price-item">90 min – 600K</span></div>
-            </div>
-            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
-                <div class="service-name">Miracle Skin Treatment</div>
-                <div class="service-desc">Increase luminosity, vibrant skin with organic actives.</div>
-                <div class="price-row"><span class="price-item">75 min – 680K</span></div>
-            </div>
+            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="service-name">💞 A Love Set for Couples</div><div class="service-desc">Couple's massage + flower bath + sound healing + 30min body mask with head & face massage.</div><div class="price-row"><span class="price-item">90 min – 1.700K</span></div></div>
+            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="service-name">✨ New Love Set for Couples</div><div class="service-desc">Scrub + 30min body mask + soothing head & face massage + flower bath ritual.</div><div class="price-row"><span class="price-item">150 min – 2.900K</span></div></div>
+            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="service-name">🌸 Balinese Boreh / Body Scrub & Mask</div><div class="service-desc">Traditional spice scrub & nourishing mask + Balinese massage.</div><div class="price-row"><span class="price-item">90 min – 550K</span></div></div>
+            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="service-name">Facial Harmony — Dermalogica</div><div class="service-desc">Deep Cleanse / Soothing Skin / Rejuvenate — radiant & pure.</div><div class="price-row"><span class="price-item">60 min – 450K</span><span class="price-item">90 min – 600K</span></div></div>
+            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="service-name">Miracle Skin Treatment</div><div class="service-desc">Increase luminosity, vibrant skin with organic actives.</div><div class="price-row"><span class="price-item">75 min – 680K</span></div></div>
         </div>
     </div>
 
+    <!-- Lounge Massage & Express -->
     <div class="service-category">
-        <div class="category-header">
-            <h3>Lounge Massage • Express Rituals</h3>
-            <span class="category-sub">quick escape, pure relief</span>
-        </div>
+        <div class="category-header"><h3>Lounge Massage • Express Rituals</h3><span class="category-sub">quick escape, pure relief</span></div>
         <div class="services-grid">
-            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
-                <div class="service-name">Foot Reflexology</div>
-                <div class="service-desc">Pressure points to restore energy flow.</div>
-                <div class="price-row"><span class="price-item">30 min – 200K</span><span class="price-item">60 min – 380K</span></div>
-            </div>
-            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
-                <div class="service-name">Head Massage (Ayurvedic)</div>
-                <div class="service-desc">Scalp, neck & shoulder release + hair mask option.</div>
-                <div class="price-row"><span class="price-item">30 min – 200K</span><span class="price-item">60 min – 380K</span></div>
-            </div>
-            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
-                <div class="service-name">Neck & Shoulders Massage</div>
-                <div class="service-desc">Target tension, instant relief.</div>
-                <div class="price-row"><span class="price-item">30 min – 200K</span></div>
-            </div>
-            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
-                <div class="service-name">Hands Massage + Manicure</div>
-                <div class="service-desc">Luxury hand therapy & nail care.</div>
-                <div class="price-row"><span class="price-item">45 min – 250K</span></div>
-            </div>
+            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="service-name">Foot Reflexology</div><div class="service-desc">Pressure points to restore energy flow.</div><div class="price-row"><span class="price-item">30 min – 200K</span><span class="price-item">60 min – 380K</span></div></div>
+            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="service-name">Head Massage (Ayurvedic)</div><div class="service-desc">Scalp, neck & shoulder release + hair mask option.</div><div class="price-row"><span class="price-item">30 min – 200K</span><span class="price-item">60 min – 380K</span></div></div>
+            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="service-name">Neck & Shoulders Massage</div><div class="service-desc">Target tension, instant relief.</div><div class="price-row"><span class="price-item">30 min – 200K</span></div></div>
+            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="service-name">Hands Massage + Manicure</div><div class="service-desc">Luxury hand therapy & nail care.</div><div class="price-row"><span class="price-item">45 min – 250K</span></div></div>
         </div>
-        <div class="category-header" style="margin-top: 2rem;">
-            <h3>Membership & Loyalty</h3>
-        </div>
+        <div class="category-header" style="margin-top: 2rem;"><h3>Membership & Loyalty</h3></div>
         <div class="services-grid">
-            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
-                <div class="service-name">3 Visits Package</div>
-                <div class="price-row"><span class="price-item">2.700K (save 15%)</span></div>
-            </div>
-            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
-                <div class="service-name">5 Visits Package</div>
-                <div class="price-row"><span class="price-item">4.000K (save 20%)</span></div>
-            </div>
+            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="service-name">3 Visits Package</div><div class="price-row"><span class="price-item">2.700K (save 15%)</span></div></div>
+            <div class="service-card" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})"><div class="service-name">5 Visits Package</div><div class="price-row"><span class="price-item">4.000K (save 20%)</span></div></div>
         </div>
         <p style="font-size: 0.7rem; text-align: right; margin-top: 1rem; color: #7C6B53;">*All prices are subject to 15% tax & service charge.</p>
     </div>
 </section>
 
-<!-- AMBIANCE section: google maps photos + video atmosphere (local vibe) -->
+<!-- Ambiance & Philosophy -->
 <section id="ambiance" class="ambiance-section">
     <div class="ambiance-grid">
         <div class="ambiance-video">
@@ -554,8 +480,8 @@
         <div>
             <h2 style="font-family: 'Playfair Display'; font-size: 2rem; margin-bottom: 1.2rem;">Where Bali’s Soul Meets Expert Hands</h2>
             <ul class="feature-list">
-                <li><i class="fas fa-hand-holding-heart"></i> <span><strong>Authentic Balinese healing</strong> – Our therapists blend traditional wisdom with modern anatomy.</span></li>
-                <li><i class="fas fa-spa"></i> <span><strong>Serene hideaway</strong> – Located in the heart of Denpasar, yet feels like a jungle sanctuary.</span></li>
+                <li><i class="fas fa-hand-holding-heart"></i> <span><strong>Authentic Balinese healing</strong> – Traditional wisdom meets modern anatomy.</span></li>
+                <li><i class="fas fa-spa"></i> <span><strong>Serene hideaway</strong> – Located in Denpasar, designed as a sanctuary.</span></li>
                 <li><i class="fas fa-water"></i> <span><strong>Flower baths & sound healing</strong> – Complete ritual for deep renewal.</span></li>
                 <li><i class="fas fa-users"></i> <span><strong>Couple’s suites</strong> – Perfect for romantic escapes or shared wellness.</span></li>
             </ul>
@@ -566,14 +492,14 @@
     </div>
 </section>
 
-<!-- REVIEWS (realistic & fresh) -->
+<!-- Reviews -->
 <section id="reviews" class="reviews-section">
     <h2 class="section-title">Guest Whispers</h2>
     <div class="swiper reviewSwiper" style="overflow: visible;">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">“Best deep tissue massage in Bali! The therapists really know how to release knots. The couple’s flower bath was pure magic.”</div><div class="review-author">— Jessica & Liam</div></div></div>
-            <div class="swiper-slide"><div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">“Incredible Four Hands experience — felt like floating. Spotless, calming, and the staff is so warm. Will return every time.”</div><div class="review-author">— Maya K.</div></div></div>
-            <div class="swiper-slide"><div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">“I had the Sports Massage after surfing. My shoulders feel brand new. Professional and authentic. Thank you HANDS SPA!”</div><div class="review-author">— Oliver T.</div></div></div>
+            <div class="swiper-slide"><div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">“Best deep tissue in Denpasar! The therapists really know how to release knots. The couple’s flower bath was pure magic.”</div><div class="review-author">— Jessica & Liam</div></div></div>
+            <div class="swiper-slide"><div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">“Incredible Four Hands — felt like floating. Spotless, calming, and the staff is so warm. Will return every time.”</div><div class="review-author">— Maya K.</div></div></div>
+            <div class="swiper-slide"><div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">“Sports massage after surfing — my shoulders feel brand new. Professional and authentic. Thank you HANDS SPA!”</div><div class="review-author">— Oliver T.</div></div></div>
             <div class="swiper-slide"><div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">“Such an elegant space. The Dermalogica facial was heavenly — my skin glowed for days. Highly recommend!”</div><div class="review-author">— Nadia P.</div></div></div>
         </div>
         <div class="swiper-pagination"></div>
@@ -582,39 +508,27 @@
     </div>
 </section>
 
-<!-- BOOKING + WHATSAPP INTEGRATION -->
+<!-- Booking + WhatsApp -->
 <section id="booking" class="booking-section section">
     <h2 class="section-title">Reserve Your Ritual</h2>
     <div class="booking-wrapper">
         <div class="booking-info">
             <h3>Hands-on Healing Awaits</h3>
-            <p><i class="fas fa-clock"></i> Open Daily · 10:00 – 22:00</p>
+            <p><i class="fas fa-clock"></i> Open Daily · 10:00 – 22:00 (Last booking 21:00)</p>
             <p><i class="fab fa-whatsapp"></i> +62 811-3900-6375</p>
             <div class="map-container" style="margin: 1rem 0;">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7880.065223342788!2d115.1404233!3d-8.6598774!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd239ca425ecf85%3A0x834a61837db02fbf!2sHANDS%20SPA%20STUDIO!5e0!3m2!1sen!2sid!4v1710000000000!5m2!1sen!2sid" allowfullscreen loading="lazy"></iframe>
             </div>
-            <p style="font-size: 0.8rem;">Jl. Gatot Subroto No.369, Denpasar, Bali 80237</p>
-            <div class="social-links" style="margin-top: 1rem;">
-                <a href="https://wa.me/6281139006375"><i class="fab fa-whatsapp"></i> Chat Now</a>
-            </div>
+            <p style="font-size: 0.8rem;">📍 Jl. Gatot Subroto No.369, Denpasar, Bali</p>
         </div>
         <div>
             <form id="bookingForm">
                 <div class="form-group"><input type="text" id="name" placeholder="Full Name *" required></div>
                 <div class="form-group"><input type="tel" id="phone" placeholder="WhatsApp Number *" required></div>
-                <div class="form-group">
-                    <select id="service" required>
-                        <option value="">Choose Treatment</option>
-                        <option>Traditional Balinese Massage</option><option>Deep Tissue Massage</option><option>Sports Massage</option>
-                        <option>Four Hands Massage</option><option>Warm Oil Massage</option><option>Aromatherapy Massage</option>
-                        <option>A Love Set for Couples</option><option>New Love Set for Couples</option><option>Balinese Boreh / Scrub</option>
-                        <option>Facial Harmony (Dermalogica)</option><option>Miracle Skin Treatment</option><option>Foot Reflexology</option>
-                        <option>Head Massage</option><option>Neck & Shoulders</option><option>Hands Massage</option>
-                    </select>
-                </div>
+                <div class="form-group"><select id="service" required><option value="">Choose Treatment</option><option>Traditional Balinese Massage</option><option>Deep Tissue Massage</option><option>Sports Massage</option><option>Four Hands Massage</option><option>Warm Oil Massage</option><option>Aromatherapy Massage</option><option>A Love Set for Couples</option><option>New Love Set for Couples</option><option>Balinese Boreh / Scrub</option><option>Facial Harmony (Dermalogica)</option><option>Miracle Skin Treatment</option><option>Foot Reflexology</option><option>Head Massage</option><option>Neck & Shoulders</option><option>Hands Massage</option></select></div>
                 <div class="form-group"><input type="text" id="datePicker" placeholder="Select Date" readonly></div>
                 <div class="form-group"><select id="timeSlot"><option value="">Select Time</option><option>10:00</option><option>11:00</option><option>12:00</option><option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17:00</option><option>18:00</option><option>19:00</option><option>20:00</option><option>21:00</option></select></div>
-                <div class="form-group"><textarea rows="2" placeholder="Additional requests (allergies, focus area..."></textarea></div>
+                <div class="form-group"><textarea rows="2" placeholder="Additional requests (allergies, focus area...)"></textarea></div>
                 <button type="submit" class="btn-submit">Book via WhatsApp →</button>
             </form>
         </div>
@@ -622,12 +536,14 @@
 </section>
 
 <footer class="footer">
-    <div class="footer-grid" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem;">
-        <div><h4>HANDS SPA STUDIO</h4><p>Denpasar’s premier wellness destination.<br>Where healing hands meet Balinese soul.</p><div class="social-links"><a href="https://wa.me/6281139006375"><i class="fab fa-whatsapp"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div>
-        <div><h4>Open Hours</h4><p>Mon – Sun : 10:00 – 22:00<br>Last booking 21:00</p><p>📍 Jl. Gatot Subroto No.369, Denpasar</p></div>
-        <div><h4>Connect</h4><p>+62 811-3900-6375<br>hello@handsspastudio.com</p></div>
+    <div class="logo" style="font-size: 1.6rem; margin-bottom: 0.5rem;">HANDS <span>SPA STUDIO</span></div>
+    <p>Masterpiece of touch — Denpasar’s sanctuary for healing hands.</p>
+    <div class="hours">
+        ⏳ Open Daily: 10:00 – 22:00 (Last booking 21:00)
     </div>
-    <div style="text-align:center; border-top:1px solid rgba(210,180,140,0.2); margin-top: 2rem; padding-top: 1.5rem;">© 2026 HANDS SPA STUDIO — Art of Healing, Bali Spirit</div>
+    <div class="small-note">
+        © 2026 HANDS SPA STUDIO — Art of Healing, Bali Spirit
+    </div>
 </footer>
 
 <script>
@@ -645,7 +561,7 @@
         e.preventDefault();
         const name = document.getElementById('name').value, phone = document.getElementById('phone').value, service = document.getElementById('service').value, date = document.getElementById('datePicker').value, time = document.getElementById('timeSlot').value;
         if(!name || !phone || !service || !date || !time) { alert("Please fill all details to reserve."); return; }
-        const msg = `*HANDS SPA STUDIO Booking*%0A%0AName: ${name}%0APhone: ${phone}%0AService: ${service}%0ADate: ${date}%0ATime: ${time}%0AThank you — see you at HANDS SPA!`;
+        const msg = `*HANDS SPA STUDIO Booking*%0A%0AName: ${name}%0APhone: ${phone}%0AService: ${service}%0ADate: ${date}%0ATime: ${time}`;
         window.open(`https://wa.me/6281139006375?text=${msg}`, '_blank');
     });
 </script>
