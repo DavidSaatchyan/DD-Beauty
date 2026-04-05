@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Hands Spa Bali | Healing in Changgu</title>
+  <title>Hands Spa Bali — Changgu | Healing Spa</title>
   <style>
     * {
       margin: 0;
@@ -12,234 +12,221 @@
     }
 
     body {
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
-      background-color: #FEFAF5;
-      color: #2C2420;
-      line-height: 1.4;
+      background-color: #0F0D0A;
+      font-family: system-ui, -apple-system, 'Inter', 'Helvetica Neue', sans-serif;
+      color: #ECE4D9;
+      line-height: 1.5;
       scroll-behavior: smooth;
     }
 
-    /* Typography */
-    h1, h2, h3 {
-      font-weight: 400;
-      letter-spacing: -0.02em;
+    /* custom scroll */
+    ::-webkit-scrollbar {
+      width: 6px;
     }
-
-    .serif {
-      font-family: 'Georgia', 'Times New Roman', serif;
-      font-weight: 400;
+    ::-webkit-scrollbar-track {
+      background: #1F1B17;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #C47A4D;
+      border-radius: 10px;
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 28px;
     }
 
-    /* Buttons */
-    .btn {
-      display: inline-block;
-      background: #D36B46;
-      color: white;
-      border: none;
-      padding: 12px 28px;
-      border-radius: 40px;
-      font-size: 1rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      text-decoration: none;
-      text-align: center;
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1.5px solid #D36B46;
-      color: #D36B46;
-    }
-
-    .btn-outline:hover {
-      background: #D36B46;
-      color: white;
-    }
-
-    .btn:hover {
-      background: #B85A38;
-      transform: scale(0.97);
-    }
-
-    /* Floating book button */
-    .floating-book {
+    /* textures & atmosphere */
+    .bg-noise {
       position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background: #D36B46;
-      color: white;
-      border: none;
-      border-radius: 60px;
-      padding: 14px 28px;
-      font-size: 1rem;
-      font-weight: 600;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      z-index: 1000;
-      cursor: pointer;
-      transition: 0.2s;
-      font-family: inherit;
-    }
-
-    .floating-book:hover {
-      background: #B85A38;
-    }
-
-    /* Header */
-    header {
-      padding: 20px 0;
-      background: #FEFAF5;
-      border-bottom: 1px solid #F0E4D8;
-      position: sticky;
       top: 0;
-      background: rgba(254,250,245,0.92);
-      backdrop-filter: blur(8px);
-      z-index: 999;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjciIG51bU9jdGF2ZXM9IjMiLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjZikiIG9wYWNpdHk9IjAuMDYiLz48L3N2Zz4=');
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* header */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 24px 0;
+      backdrop-filter: blur(12px);
+      background: rgba(15, 13, 10, 0.65);
+      z-index: 100;
+      border-bottom: 1px solid rgba(236, 228, 217, 0.12);
     }
 
     .header-flex {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .logo {
       font-size: 1.8rem;
-      font-weight: 500;
+      font-weight: 400;
       letter-spacing: -0.02em;
     }
-
     .logo span {
-      color: #D36B46;
       font-weight: 600;
+      color: #E4A26C;
     }
-
-    .nav-links {
-      display: flex;
-      gap: 32px;
-    }
-
-    .nav-links a {
+    .nav a {
+      color: #ECE4D9;
       text-decoration: none;
-      color: #2C2420;
-      font-weight: 500;
+      margin-left: 32px;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
+      transition: 0.2s;
     }
+    .nav a:hover { color: #E4A26C; }
 
-    /* Hero */
+    /* hero video atmosphere */
     .hero {
-      padding: 60px 0 80px;
-      background: linear-gradient(135deg, #FEF5ED 0%, #F9E6D8 100%);
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background: radial-gradient(circle at 20% 30%, #2A241E, #0A0806);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=80&w=2070&auto=format') center/cover no-repeat;
+      opacity: 0.35;
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 620px;
+    }
+    .hero-content h1 {
+      font-size: 4.8rem;
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #D9CFC4;
+      margin-bottom: 40px;
+    }
+    .btn-primary {
+      background: #C47A4D;
+      border: none;
+      padding: 14px 38px;
+      border-radius: 60px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: white;
+      cursor: pointer;
+      transition: 0.25s;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    .btn-primary:hover {
+      background: #D99162;
+      transform: scale(1.02);
     }
 
-    .hero-grid {
+    /* services */
+    .services {
+      padding: 110px 0;
+      background: #0F0D0A;
+    }
+    .section-title {
+      font-size: 2.8rem;
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 64px;
+      letter-spacing: -0.01em;
+    }
+    .cards-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 40px;
-      align-items: center;
-    }
-
-    .hero-text {
-      flex: 1;
-    }
-
-    .hero-text h1 {
-      font-size: 3.2rem;
-      line-height: 1.2;
-      margin-bottom: 20px;
-    }
-
-    .hero-text p {
-      font-size: 1.2rem;
-      color: #4A3B34;
-      margin-bottom: 32px;
-      max-width: 500px;
-    }
-
-    .hero-img {
-      flex: 1;
-      background: #EBD9CE;
-      border-radius: 32px;
-      height: 380px;
-      background-image: url('https://placehold.co/800x500/F5E6D3/886A5A?text=Hands+Spa+Ambience');
-      background-size: cover;
-      background-position: center;
-    }
-
-    /* Services */
-    .services {
-      padding: 80px 0;
-    }
-
-    .section-title {
-      font-size: 2.4rem;
-      margin-bottom: 48px;
-      text-align: center;
-    }
-
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 32px;
       justify-content: center;
     }
-
-    .card {
-      background: white;
-      border-radius: 28px;
-      padding: 28px;
-      flex: 1;
-      min-width: 240px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.03);
-      transition: 0.2s;
-      border: 1px solid #F0E4D8;
+    .service-card {
+      background: rgba(30, 26, 22, 0.7);
+      backdrop-filter: blur(4px);
+      border-radius: 42px;
+      padding: 36px 28px;
+      width: 300px;
+      border: 1px solid rgba(196, 122, 77, 0.25);
+      transition: all 0.3s ease;
     }
-
-    .card h3 {
-      font-size: 1.6rem;
+    .service-card:hover {
+      border-color: #C47A4D;
+      transform: translateY(-6px);
+      background: rgba(30, 26, 22, 0.9);
+    }
+    .service-icon {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+    }
+    .service-card h3 {
+      font-size: 1.8rem;
+      font-weight: 500;
       margin-bottom: 12px;
     }
-
     .price {
-      color: #D36B46;
-      font-weight: 600;
-      font-size: 1.3rem;
-      margin: 16px 0 8px;
+      font-size: 1.6rem;
+      color: #E4A26C;
+      margin: 20px 0 8px;
     }
-
     .duration {
-      color: #8F7A6B;
-      font-size: 0.9rem;
-      margin-bottom: 24px;
+      font-size: 0.85rem;
+      opacity: 0.7;
+      margin-bottom: 28px;
+    }
+    .book-service {
+      background: transparent;
+      border: 1px solid #C47A4D;
+      padding: 10px 0;
+      width: 100%;
+      border-radius: 50px;
+      color: #ECE4D9;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .book-service:hover {
+      background: #C47A4D;
+      color: #0F0D0A;
     }
 
-    /* Why us */
-    .why-us {
-      background: #F5EDE6;
-      padding: 70px 0;
+    /* why us (atmosphere) */
+    .why {
+      padding: 90px 0;
+      background: #15110E;
       text-align: center;
     }
-
     .features {
       display: flex;
       flex-wrap: wrap;
-      gap: 48px;
       justify-content: center;
+      gap: 56px;
       margin-top: 48px;
     }
-
-    .feature {
+    .feature-item {
       max-width: 220px;
     }
+    .feature-icon {
+      font-size: 2.4rem;
+      margin-bottom: 16px;
+    }
 
-    /* Gallery */
+    /* gallery immersive */
     .gallery {
-      padding: 80px 0;
+      padding: 90px 0;
     }
     .gallery-grid {
       display: flex;
@@ -247,220 +234,262 @@
       gap: 20px;
       justify-content: center;
     }
-    .gallery-item {
-      width: 280px;
-      height: 280px;
-      background: #E2D4CA;
-      border-radius: 24px;
+    .gallery-card {
+      width: 320px;
+      height: 420px;
+      border-radius: 36px;
       background-size: cover;
       background-position: center;
+      transition: 0.3s;
+      filter: grayscale(0.2);
+    }
+    .gallery-card:hover {
+      filter: grayscale(0);
+      transform: scale(0.98);
     }
 
-    /* Testimonials */
-    .testimonials {
-      background: #FFF6EF;
-      padding: 70px 0;
-    }
-    .testimonial-card {
-      background: white;
-      padding: 28px;
-      border-radius: 28px;
-      max-width: 380px;
-      margin: 0 auto;
-      font-style: italic;
-    }
-
-    /* Footer */
-    footer {
-      background: #2C2420;
-      color: #E6D9D0;
-      padding: 48px 0 32px;
-    }
-    .footer-flex {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 32px;
-    }
-    .footer-col a {
-      color: #E6D9D0;
-      text-decoration: none;
-    }
-
-    /* Modal */
+    /* booking modal (clean + only WhatsApp) */
     .modal {
       display: none;
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(10px);
       justify-content: center;
       align-items: center;
-      z-index: 1100;
+      z-index: 1000;
     }
-    .modal-content {
-      background: #FEFAF5;
-      max-width: 500px;
+    .modal-card {
+      background: #191612;
+      max-width: 480px;
       width: 90%;
-      border-radius: 36px;
-      padding: 32px;
+      border-radius: 48px;
+      padding: 40px 32px;
+      border: 1px solid rgba(196,122,77,0.5);
       position: relative;
     }
-    .close-modal {
+    .close {
       position: absolute;
-      top: 18px; right: 24px;
-      font-size: 28px;
+      top: 20px;
+      right: 28px;
+      font-size: 32px;
       cursor: pointer;
+      color: #BCA88F;
     }
-    .form-group {
-      margin-bottom: 20px;
+    .modal-card h3 {
+      font-size: 2rem;
+      margin-bottom: 12px;
     }
-    label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: 500;
+    .input-group {
+      margin-bottom: 28px;
     }
-    input, select, textarea {
+    input, select {
       width: 100%;
-      padding: 12px;
-      border-radius: 24px;
-      border: 1px solid #E2CFC0;
-      background: white;
+      padding: 14px 18px;
+      background: #2C2520;
+      border: 1px solid #4F3E32;
+      border-radius: 60px;
+      color: #F0E3D8;
       font-size: 1rem;
     }
-    @media (max-width: 750px) {
-      .hero-text h1 { font-size: 2.2rem; }
-      .nav-links { display: none; }
-      .floating-book { padding: 10px 20px; font-size: 0.9rem; }
+    .whatsapp-btn {
+      background: #25D366;
+      border: none;
+      padding: 14px;
+      width: 100%;
+      border-radius: 60px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #0F0D0A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+    .footnote {
+      font-size: 0.7rem;
+      text-align: center;
+      margin-top: 20px;
+      opacity: 0.6;
+    }
+
+    /* floating CTA */
+    .float-wa {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #25D366;
+      padding: 14px 26px;
+      border-radius: 80px;
+      color: #0F0D0A;
+      font-weight: bold;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      z-index: 99;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      border: none;
+    }
+
+    footer {
+      padding: 56px 0 40px;
+      border-top: 1px solid rgba(236,228,217,0.1);
+      text-align: center;
+    }
+    @media (max-width: 800px) {
+      .hero-content h1 { font-size: 2.8rem; }
+      .nav { display: none; }
+      .container { padding: 0 20px; }
+      .section-title { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
+<div class="bg-noise"></div>
 
 <header>
   <div class="container header-flex">
-    <div class="logo">Hands<span>Spa</span> Bali</div>
-    <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#why">Why us</a>
-      <a href="#contact">Contact</a>
+    <div class="logo">HANDS <span>SPA</span> BALI</div>
+    <div class="nav">
+      <a href="#services">Treatments</a>
+      <a href="#why">Vibe</a>
+      <a href="#gallery">Moments</a>
     </div>
   </div>
 </header>
 
-<main>
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-text">
-        <h1 class="serif">Heal in Changgu.<br>Your hands in good hands.</h1>
-        <p>Natural oils, silent ambiance, and skilled therapists. Reconnect with yourself.</p>
-        <button class="btn open-modal-btn">Book your escape →</button>
-      </div>
-      <div class="hero-img"></div>
-    </div>
-  </section>
+<section class="hero">
+  <div class="container hero-content">
+    <h1>Healing in Changgu<br>by Hands Spa</h1>
+    <p>Natural oils, ocean breeze & silent luxury. Reconnect through touch.</p>
+    <button class="btn-primary" id="heroBookBtn">Book your ritual →</button>
+  </div>
+</section>
 
-  <section id="services" class="services">
-    <div class="container">
-      <h2 class="section-title serif">Treatments</h2>
-      <div class="cards">
-        <div class="card"><h3>Deep Tissue</h3><p>Targets knots & tension</p><div class="price">350k IDR</div><div class="duration">60 min</div><button class="btn-outline btn open-modal-btn" style="width:100%">Book</button></div>
-        <div class="card"><h3>Balinese Boreh</h3><p>Warming herbal compress</p><div class="price">420k IDR</div><div class="duration">90 min</div><button class="btn-outline btn open-modal-btn" style="width:100%">Book</button></div>
-        <div class="card"><h3>Hands Ritual</h3><p>Scrub + mask + massage</p><div class="price">280k IDR</div><div class="duration">45 min</div><button class="btn-outline btn open-modal-btn" style="width:100%">Book</button></div>
-      </div>
+<section id="services" class="services">
+  <div class="container">
+    <h2 class="section-title">— treatments —</h2>
+    <div class="cards-grid">
+      <div class="service-card"><div class="service-icon">🌴</div><h3>Deep Tissue</h3><p>Release deep tension, expert hands</p><div class="price">350K IDR</div><div class="duration">60 min</div><button class="book-service" data-service="Deep Tissue (350k)">book</button></div>
+      <div class="service-card"><div class="service-icon">🔥</div><h3>Balinese Boreh</h3><p>Warming herbs & traditional compress</p><div class="price">420K IDR</div><div class="duration">90 min</div><button class="book-service" data-service="Balinese Boreh (420k)">book</button></div>
+      <div class="service-card"><div class="service-icon">🤲</div><h3>Hands Signature</h3><p>Hot stone + aromatic massage</p><div class="price">480K IDR</div><div class="duration">90 min</div><button class="book-service" data-service="Hands Signature (480k)">book</button></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="why" class="why-us">
-    <div class="container">
-      <h2 class="section-title serif">Why Hands Spa</h2>
-      <div class="features">
-        <div class="feature">🌿 Organic coconut & essential oils</div>
-        <div class="feature">🕯️ Silent & private rooms</div>
-        <div class="feature">🧘‍♀️ Changgu local – no rush</div>
-        <div class="feature">🤲 100% clean towels & tools</div>
-      </div>
+<section id="why" class="why">
+  <div class="container">
+    <h2 class="section-title">— changgu soul —</h2>
+    <div class="features">
+      <div class="feature-item"><div class="feature-icon">🌾</div><h4>Organic oils</h4><p>Coconut & frangipani blends</p></div>
+      <div class="feature-item"><div class="feature-icon">🕯️</div><h4>Silent rooms</h4><p>No noise, only healing</p></div>
+      <div class="feature-item"><div class="feature-icon">🌊</div><h4>5min to beach</h4><p>After-spa sunset walk</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="gallery">
-    <div class="container">
-      <h2 class="section-title serif">Feel the space</h2>
-      <div class="gallery-grid">
-        <div class="gallery-item" style="background-image: url('https://placehold.co/400x400/E2CFC0/886A5A?text=massage+room')"></div>
-        <div class="gallery-item" style="background-image: url('https://placehold.co/400x400/DBC8BA/886A5A?text=natural+light')"></div>
-        <div class="gallery-item" style="background-image: url('https://placehold.co/400x400/F0DFD2/886A5A?text=hands+preparation')"></div>
-      </div>
+<section id="gallery" class="gallery">
+  <div class="container">
+    <h2 class="section-title">— immerse —</h2>
+    <div class="gallery-grid">
+      <div class="gallery-card" style="background-image: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1974&auto=format')"></div>
+      <div class="gallery-card" style="background-image: url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=80&w=2070&auto=format')"></div>
+      <div class="gallery-card" style="background-image: url('https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?q=80&w=2070&auto=format')"></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="testimonials">
-    <div class="container">
-      <h2 class="section-title serif">Guest love</h2>
-      <div class="cards">
-        <div class="testimonial-card">“The best massage in Changgu. Quiet, clean, and they listen.” — <strong>Maria, 3 weeks ago</strong></div>
-        <div class="testimonial-card">“Finally a spa that feels authentic. Hands Ritual is magic.” — <strong>James, nomad</strong></div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer id="contact">
-  <div class="container footer-flex">
-    <div class="footer-col"><strong>Hands Spa Bali</strong><br>Jl. Pantai Berawa, Changgu<br>Open daily 10am – 9pm</div>
-    <div class="footer-col"><strong>Contact</strong><br>📞 +62 812 3456 7890<br>📧 hello@handsspabali.com<br>📱 <a href="#">WhatsApp booking</a></div>
-    <div class="footer-col"><strong>Follow</strong><br>Instagram: @handsspa.bali</div>
+<footer>
+  <div class="container">
+    <p>📍 Jl. Batu Mejan, Changgu — open daily 10am – 9pm</p>
+    <p style="margin-top: 12px;">✨ @handsspa.bali | +62 812-3988-2210 ✨</p>
   </div>
 </footer>
 
-<button class="floating-book open-modal-btn">📅 Book now</button>
+<button class="float-wa" id="floatingWaBtn">💬 Book via WhatsApp</button>
 
-<!-- Modal -->
+<!-- MODAL (only name + wa) -->
 <div id="bookingModal" class="modal">
-  <div class="modal-content">
-    <span class="close-modal">&times;</span>
-    <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Book your moment</h3>
-    <form id="bookingForm">
-      <div class="form-group"><label>Treatment *</label><select id="treatment"><option>Deep Tissue (350k / 60min)</option><option>Balinese Boreh (420k / 90min)</option><option>Hands Ritual (280k / 45min)</option></select></div>
-      <div class="form-group"><label>Preferred date</label><input type="date" id="date"></div>
-      <div class="form-group"><label>Time (approx)</label><input type="time" id="time"></div>
-      <div class="form-group"><label>Full name *</label><input type="text" id="name" required></div>
-      <div class="form-group"><label>WhatsApp / Email *</label><input type="text" id="contactInfo" required></div>
-      <button type="submit" class="btn" style="width:100%">Send request →</button>
-      <p style="font-size: 0.75rem; margin-top: 12px; text-align:center;">We'll confirm within 1 hour via WhatsApp</p>
-    </form>
+  <div class="modal-card">
+    <span class="close">&times;</span>
+    <h3>Secure your moment</h3>
+    <p style="margin-bottom: 24px;">We’ll reply within 30 min</p>
+    <div class="input-group">
+      <input type="text" id="clientName" placeholder="Your name" autocomplete="off">
+    </div>
+    <div class="input-group">
+      <input type="text" id="whatsappNumber" placeholder="WhatsApp number (with country code)">
+    </div>
+    <div class="input-group">
+      <select id="selectedServiceModal">
+        <option value="Deep Tissue (350k)">Deep Tissue — 350k</option>
+        <option value="Balinese Boreh (420k)">Balinese Boreh — 420k</option>
+        <option value="Hands Signature (480k)">Hands Signature — 480k</option>
+      </select>
+    </div>
+    <button id="sendWhatsAppLead" class="whatsapp-btn">📲 Send via WhatsApp</button>
+    <div class="footnote">No spam, just confirmation</div>
   </div>
 </div>
 
 <script>
+  // modal logic
   const modal = document.getElementById('bookingModal');
-  const openBtns = document.querySelectorAll('.open-modal-btn');
-  const closeBtn = document.querySelector('.close-modal');
-  const form = document.getElementById('bookingForm');
+  const openModalBtns = document.querySelectorAll('.book-service, #heroBookBtn, #floatingWaBtn');
+  const closeModalBtn = document.querySelector('.close');
+  const sendBtn = document.getElementById('sendWhatsAppLead');
 
-  function openModal() { modal.style.display = 'flex'; }
+  let preselectedService = '';
+
+  function openModal(serviceName = null) {
+    if(serviceName) {
+      preselectedService = serviceName;
+      const selectEl = document.getElementById('selectedServiceModal');
+      if(selectEl && serviceName) {
+        for(let i=0; i<selectEl.options.length; i++) {
+          if(selectEl.options[i].value === serviceName) {
+            selectEl.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    } else {
+      preselectedService = '';
+    }
+    modal.style.display = 'flex';
+  }
+
   function closeModal() { modal.style.display = 'none'; }
 
-  openBtns.forEach(btn => btn.addEventListener('click', openModal));
-  closeBtn.addEventListener('click', closeModal);
+  openModalBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const serviceAttr = btn.getAttribute('data-service');
+      if(serviceAttr) openModal(serviceAttr);
+      else openModal();
+    });
+  });
+  closeModalBtn.addEventListener('click', closeModal);
   window.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const treatment = document.getElementById('treatment').value;
-    const name = document.getElementById('name').value;
-    const contact = document.getElementById('contactInfo').value;
-    const date = document.getElementById('date').value || 'not specified';
-    const time = document.getElementById('time').value || 'flexible';
-    if(!name || !contact) {
-      alert("Please fill name and WhatsApp/Email");
+  // send to WhatsApp (direct chat)
+  sendBtn.addEventListener('click', () => {
+    const name = document.getElementById('clientName').value.trim();
+    const wa = document.getElementById('whatsappNumber').value.trim();
+    const service = document.getElementById('selectedServiceModal').value;
+
+    if(!name || !wa) {
+      alert("Please fill name and WhatsApp number 🙏");
       return;
     }
-    // Simulate sending to Telegram / WhatsApp / EmailJS
-    console.log(`Booking request: ${name}, ${contact}, ${treatment}, ${date} ${time}`);
-    alert(`✨ Thanks ${name}! We’ll message you on ${contact} to confirm your session at Hands Spa.`);
+
+    const message = `Hi Hands Spa Bali! I'd like to book %0A📿 *${service}*%0A👤 Name: ${name}%0A📱 WhatsApp: ${wa}%0A📍 Changgu store - please confirm available time.`;
+    const whatsappNumber = '6281239882210'; // replace with real number
+    const url = `https://wa.me/${whatsappNumber}?text=${message}`;
+    window.open(url, '_blank');
     closeModal();
-    form.reset();
   });
 </script>
 </body>
